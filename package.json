@@ -1,0 +1,38 @@
+{
+  "name": "pdf-authenticator",
+  "version": "1.0.0",
+  "description": "Fast, lightweight, and secure PDF validator for Node.js. Detect real PDFs and prevent fake or renamed files like .exe or .txt disguised as .pdf.",
+  "main": "index.js",
+  "keywords": [
+    "pdf",
+    "pdf validator",
+    "validate pdf",
+    "check pdf",
+    "safe pdf",
+    "file validation",
+    "node pdf",
+    "backend pdf",
+    "upload validation",
+    "pdf security",
+    "pdf file check",
+    "detect pdf",
+    "is pdf",
+    "pdf verification",
+    "binary file check",
+    "pdf authenticator"
+  ],
+  "author": "Guru Sharan Kumar Ram",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gurusharankumarram1/pdf-authenticator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gurusharankumarram1/pdf-authenticator/issues"
+  },
+  "homepage": "https://github.com/gurusharankumarram1/pdf-authenticator#readme",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=12"
+  }
+}
