@@ -1,38 +1,63 @@
 {
   "name": "pdf-authenticator",
   "version": "1.0.0",
-  "description": "Fast, lightweight, and secure PDF validator for Node.js. Detect real PDFs and prevent fake or renamed files like .exe or .txt disguised as .pdf.",
-  "main": "index.js",
+  "description": "Fast, zero-dependency PDF validator. Detects real PDFs, rejects renamed, truncated, or disguised files, and reports version and encryption.",
   "keywords": [
     "pdf",
     "pdf validator",
     "validate pdf",
     "check pdf",
-    "safe pdf",
-    "file validation",
-    "node pdf",
-    "backend pdf",
-    "upload validation",
-    "pdf security",
-    "pdf file check",
-    "detect pdf",
     "is pdf",
+    "detect pdf",
     "pdf verification",
-    "binary file check",
+    "pdf security",
+    "encrypted pdf",
+    "corrupt pdf",
+    "file validation",
+    "upload validation",
+    "magic bytes",
     "pdf authenticator"
   ],
   "author": "Guru Sharan Kumar Ram",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gurusharankumarram1/pdf-authenticator.git"
+    "url": "git+https://github.com/gurusharankumarram1/pdf-authenticator.git"
   },
   "bugs": {
     "url": "https://github.com/gurusharankumarram1/pdf-authenticator/issues"
   },
   "homepage": "https://github.com/gurusharankumarram1/pdf-authenticator#readme",
   "type": "commonjs",
+  "sideEffects": false,
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
   "engines": {
-    "node": ">=12"
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node scripts/prepare-dist.mjs && tsc && tsc --module commonjs --outDir dist/cjs",
+    "test": "npm run build && tsc -p test/types && node --test test/validate.test.mjs test/large.test.mjs test/package.test.cjs",
+    "prepack": "npm run build",
+    "prepublishOnly": "npm test"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
   }
 }
